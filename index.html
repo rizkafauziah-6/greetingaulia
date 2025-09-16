@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semangat untuk Arbil!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(to bottom, #87CEEB, #E0F7FA);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .minecraft-box {
+            border: 4px solid #8B4513;
+            background-color: #A0522D;
+            box-shadow: inset 0 0 10px #000000;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+        
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            50% { opacity: 1; }
+            100% { opacity: 0.3; }
+        }
+        
+        .bubble {
+            position: relative;
+            background: white;
+            border-radius: 20px;
+            padding: 15px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .bubble:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            border-width: 10px 10px 0;
+            border-style: solid;
+            border-color: white transparent;
+            transform: translateX(-50%);
+        }
+        
+        
+        
+        
+        @keyframes float {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(100vw); }
+        }
+        
+        .page {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        
+        .active {
+            display: block;
+            opacity: 1;
+        }
+        
+        .minecraft-btn {
+            background-color: #4CAF50;
+            border: 3px solid #3E8E41;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+        
+        .minecraft-btn:hover {
+            background-color: #3E8E41;
+            transform: translateY(-2px);
+        }
+        
+        .minecraft-btn:active {
+            transform: translateY(2px);
+        }
+        
+        .mc-grass {
+            background: linear-gradient(to bottom, #4CAF50, #8BC34A);
+            border: 3px solid #388E3C;
+            height: 20px;
+        }
+        
+        .mc-dirt {
+            background: linear-gradient(to bottom, #795548, #5D4037);
+            border: 3px solid #4E342E;
+            height: 40px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+    <!-- Page 1 -->
+    <div id="page1" class="page active w-full max-w-2xl">
+        <div class="minecraft-box rounded-lg p-8 text-center mb-8">
+            <h1 class="text-4xl font-bold text-yellow-300 mb-6">Halo Arbil!</h1>
+            <p class="text-white text-lg mb-4">Hey friend, I know things are tough right now, but remember that every storm eventually passes.</p>
+            <p class="text-white text-lg mb-6">You're stronger than you think, and this difficult time will make you even stronger!</p>
+            
+            <div class="bg-blue-100 p-6 rounded-lg mb-6">
+                <h2 class="text-2xl font-bold text-blue-800 mb-4">Quick Math Quiz</h2>
+                <p class="text-blue-700 mb-2">Solve this problem to continue to the next page:</p>
+                <p class="text-xl font-mono font-bold text-blue-900 mb-4">√(3² + 4²) = ?</p>
+                
+                <input type="number" id="answer" placeholder="Your answer" class="p-3 border border-blue-300 rounded-lg mb-4 w-40 text-center">
+                <br>
+                <button onclick="checkAnswer()" class="minecraft-btn">Submit Answer</button>
+                <p id="result" class="mt-4 font-bold"></p>
+            </div>
+            
+            <div class="flex justify-center mt-6">
+                <div class="mx-2 cloud" style="width: 60px; height: 30px; top: 20px; left: 10%; animation-duration: 25s;"></div>
+                <div class="mx-2 cloud" style="width: 80px; height: 40px; top: 40px; left: 30%; animation-duration: 20s;"></div>
+                <div class="mx-2 cloud" style="width: 70px; height: 35px; top: 10px; left: 60%; animation-duration: 30s;"></div>
+            </div>
+        </div>
+        
+        <!-- Minecraft ground -->
+        <div class="w-full max-w-2xl">
+            <div class="mc-grass w-full"></div>
+            <div class="mc-dirt w-full"></div>
+        </div>
+    </div>
+
+    <!-- Page 2 -->
+    <div id="page2" class="page w-full max-w-2xl">
+        <div class="minecraft-box rounded-lg p-8 text-center mb-8">
+            <h1 class="text-4xl font-bold text-yellow-300 mb-6">You Can Do It, Arbil!</h1>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center my-8">
+                <div class="relative m-4">
+                    <div class="w-24 h-24 bg-yellow-300 rounded-full flex items-center justify-center mx-auto">
+                        <i class="fas fa-star text-white text-4xl"></i>
+                    </div>
+                    <div class="bubble bg-white mt-4">
+                        <p class="text-gray-800">It's so hard</p>
+                    </div>
+                </div>
+                
+                <div class="relative m-4">
+                    <div class="w-24 h-24 bg-yellow-300 rounded-full flex items-center justify-center mx-auto">
+                        <i class="fas fa-star text-white text-4xl"></i>
+                    </div>
+                    <div class="bubble bg-white mt-4">
+                        <p class="text-gray-800">But it will get better</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-green-100 p-6 rounded-lg mb-6">
+                <h2 class="text-2xl font-bold text-green-800 mb-4">A Song for You</h2>
+                <p class="text-green-700 mb-4">Here's a song that might cheer you up: <span class="font-bold">Ramai Sepi by Hindia</span></p>
+                
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <div class="flex items-center justify-center">
+                        <audio id="song" controls class="w-full max-w-md">
+                             <source src="Hindia.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-2">Note: enjoy ur music!</p>
+                </div>
+            </div>
+            
+            <div class="mt-8 p-6 bg-yellow-100 rounded-lg">
+                <p class="text-xl text-orange-800 font-bold mb-4">Remember, my friend:</p>
+                <p class="text-lg text-orange-700">Every day may not be good, but there's something good in every day.</p>
+                <p class="text-lg text-orange-700 mt-2">This difficult time is just a chapter in your life, not the whole story.</p>
+                <p class="text-lg text-orange-700 mt-2">Keep going, because you never know how close you are to a breakthrough!</p>
+            </div>
+            
+           <div class="mt-8 p-4 bg-yellow-100 rounded-lg">
+                <h3 class="text-center text-gray-800 font-medium">from ur sister - aulia</h3>
+           </div>
+
+    
+            <div class="flex justify-center mt-6">
+                <div class="mx-2 cloud" style="width: 60px; height: 30px; top: 20px; left: 10%; animation-duration: 25s;"></div>
+                <div class="mx-2 cloud" style="width: 80px; height: 40px; top: 40px; left: 30%; animation-duration: 20s;"></div>
+                <div class="mx-2 cloud" style="width: 70px; height: 35px; top: 10px; left: 60%; animation-duration: 30s;"></div>
+            </div>
+        </div>
+        
+        <!-- Minecraft ground -->
+        <div class="w-full max-w-2xl">
+            <div class="mc-grass w-full"></div>
+            <div class="mc-dirt w-full"></div>
+        </div>
+    </div>
+
+    <!-- Stars background elements -->
+    <div class="star" style="width: 5px; height: 5px; top: 15%; left: 15%; animation-delay: 0s;"></div>
+    <div class="star" style="width: 3px; height: 3px; top: 25%; left: 35%; animation-delay: 1s;"></div>
+    <div class="star" style="width: 4px; height: 4px; top: 10%; left: 75%; animation-delay: 0.5s;"></div>
+    <div class="star" style="width: 3px; height: 3px; top: 30%; left: 55%; animation-delay: 2s;"></div>
+    <div class="star" style="width: 5px; height: 5px; top: 20%; left: 85%; animation-delay: 1.5s;"></div>
+
+    <script>
+        // Function to check the answer
+        function checkAnswer() {
+            const userAnswer = document.getElementById('answer').value;
+            const resultElement = document.getElementById('result');
+            
+            // Calculate the correct answer: √(3² + 4²) = √(9 + 16) = √25 = 5
+            if (userAnswer == 5) {
+                resultElement.textContent = "Correct! Moving to the next page...";
+                resultElement.className = "mt-4 font-bold text-green-600";
+                
+                // Change page after 1 second
+                setTimeout(() => {
+                    document.getElementById('page1').classList.remove('active');
+                    document.getElementById('page2').classList.add('active');
+                }, 1000);
+            } else {
+                resultElement.textContent = "Not quite. Try again! Remember: √(3² + 4²) = √(9 + 16) = √25 = ?";
+                resultElement.className = "mt-4 font-bold text-red-600";
+            }
+        }
+        
+        // Create stars
+        function createStars() {
+            const container = document.body;
+            for (let i = 0; i < 20; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                const size = Math.random() * 3 + 2;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                container.appendChild(star);
+            }
+        }
+        
+        // Initialize when page loads
+        window.onload = function() {
+            createClouds();
+            createStars();
+        };
+    </script>
+</body>
+</html>
